@@ -1,0 +1,10 @@
+*{
+    margin:0;
+    padding:0;
+}
+.MenubarTrigger[data-state="open"] {
+    background-color: white;
+}
+.MenubarTrigger:hover {
+	background-color: #F1F5F9;
+}

@@ -1,0 +1,81 @@
+/* Container styling */
+.image-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 80vh;
+    margin:2rem
+}
+
+/* Wrapper for the image */
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 90%;
+    width: 500px;
+}
+
+/* Image styling */
+.image-display {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-display:hover {
+    transform: scale(1.02);
+}
+
+/* Button styling */
+/* .copy-url-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.copy-url-button:hover {
+    background-color: #0056b3;
+} */
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .image-wrapper {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .image-display {
+        max-height: 300px;
+    }
+
+    .copy-url-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .copy-url-button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
