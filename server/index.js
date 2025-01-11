@@ -20,7 +20,7 @@ const path = require('path');
 // });
 
 const corsOption = {
-    origin: "*",
+    origin: "https://document-management-app-fyy6.onrender.com",
     methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials: true,
 }

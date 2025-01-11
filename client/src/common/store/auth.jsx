@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(""); // Reset user if token is missing
                 return;
             }
-            const response = await fetch("https://document-management-app-pwr7.onrender.com/api/auth/user", {
+            const response = await fetch("https://document-management-app-fyy6.onrender.com/api/auth/user", {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`
