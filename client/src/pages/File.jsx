@@ -28,7 +28,7 @@ export default function File() {
 
     try {
       // Send DELETE request to the server
-      const response = await fetch(`https://document-management-app-fyy6.onrender.com/api/deleteDocument/${id}`, {
+      const response = await fetch(`https://document-management-app-fyy6.onrender.com/api/upload/deleteDocument/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export default function File() {
     const fetchDocuments = async () => {
       if (!userEmail.email) return; // Wait until userEmail is updated
       try {
-        const response = await fetch("https://document-management-app-fyy6.onrender.com/api/fetchAllDocument", {
+        const response = await fetch("https://document-management-app-fyy6.onrender.com/api/user/fetchAllDocument", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

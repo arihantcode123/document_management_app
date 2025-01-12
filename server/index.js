@@ -30,8 +30,8 @@ const _dirname = path.resolve();
 app.use(cors(corsOption));
 app.use(express.json())
 app.use('/api/auth',authRoute)
-app.use('/api',uploadRoute)
-app.use('/api',userRoute)
+app.use('/api/upload',uploadRoute)
+app.use('/api/user',userRoute)
 app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 
 app.use(express.static(path.join(_dirname, "/client/dist")));
