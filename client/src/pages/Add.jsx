@@ -56,6 +56,8 @@ export default function Add() {
             
             Notification(responseData.message,responseData.type);
         } catch (error) {
+            console.log(error);
+            
             Notification("Failed to fetched ❌","error")
         }
     };
