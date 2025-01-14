@@ -29,12 +29,12 @@ const uploadFile = async (req, res) => {
             },
         });
         fs.unlinkSync(req.file.path);
-        res.status(201).send({ message: 'File uploaded successfully ✅', type: "success" });
+        return res.status(201).send({ message: 'File uploaded successfully ✅', type: "success" });
     } catch (error) {
         if (req.file && req.file.path) {
             fs.unlinkSync(req.file.path);
         }
-        res.status(500).send({ error: 'Internal server error ❌', type: "error" });
+        return res.status(500).send({ error: 'Internal server error ❌', type: "error" });
     }
 };
 
