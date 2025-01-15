@@ -32,7 +32,7 @@ app.use(express.json())
 app.use('/api/auth',authRoute)
 app.use('/api/upload',uploadRoute)
 app.use('/api/user',userRoute)
-app.use('/uploads', express.static(path.join(__dirname, './uploads')));
+app.use(express.static('/uploads'));
 
 app.use(express.static(path.join(_dirname, "/client/dist")));
 app.get("*", (_, res) => {
