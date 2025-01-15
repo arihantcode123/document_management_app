@@ -3,23 +3,12 @@ const cloudinary = require('../utils/cloudinary')
 const fs = require('fs');
 
 
-const uploadToCloudinary = (buffer) => {
-    return new Promise((resolve, reject) => {
-        const stream = cloudinary.uploader.upload_stream((error, result) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(result);
-            }
-        });
-        stream.end(buffer);
-    });
-};
 
 const uploadFile = async (req, res) => {
     try {
         const { name, description, email } = req.body;
-
+        console.log("after getting name email etc");
+        
         // Check if the uploaded file is an image
         const allowedMimeTypes = ['image/jpeg', 'image/png'];
 
@@ -27,8 +16,13 @@ const uploadFile = async (req, res) => {
             return res.status(400).send({ message: 'Only image files (JPEG, PNG) are allowed.', type: "info" });
         }
 
-        // const result = await cloudinary.uploader.upload(req.file.path)
-        const result = await uploadToCloudinary(req.file.buffer);
+        console.log("after checking mime type");
+        
+
+        const result = await cloudinary.uploader.upload(req.file.path)
+        console.log("after uploading to cloudinary");
+        console.log(result);
+        
         await Document.create({
             email,
             name,
@@ -41,12 +35,20 @@ const uploadFile = async (req, res) => {
                 url: result.url
             },
         });
-        // fs.unlinkSync(req.file.path);
+
+        console.log("after creating document");
+        
+        fs.unlinkSync(req.file.path);
+
+        console.log("after deleting file and just before response");
+        
         return res.status(201).send({ message: 'File uploaded successfully ✅', type: "success" });
     } catch (error) {
-        // if (req.file && req.file.path) {
-        //     fs.unlinkSync(req.file.path);
-        // }
+        console.log(error);
+        
+        if (req.file && req.file.path) {
+            fs.unlinkSync(req.file.path);
+        }
         return res.status(500).send({ error: 'Internal server error ❌', type: "error" });
     }
 };
